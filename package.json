@@ -1,23 +1,10 @@
 {
-  "name": "parse-decentlab",
+  "name": "parse-device-list",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tago-io/parse-decentlab.git"
-  },
+  "private": true,
   "author": "Tago LLC",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tago-io/parse-decentlab/issues"
-  },
-  "homepage": "https://github.com/tago-io/parse-decentlab#readme", 
+  "license": "MIT",
   "dependencies": {
-    "co": "^4.6.0",
-    "tago": "^5.4.12"
+    "@tago-io/sdk": "^10.0.0-beta.22"
   }
 }

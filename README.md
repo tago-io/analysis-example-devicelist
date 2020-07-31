@@ -1,19 +1,15 @@
 ## What this does
-Analysis to be trigerred by an action. It converts the payload variable "pdu" of the DecentLab device, extracting its data and inserting it to the device bucket.
+This analysis retrieves the device list of your account and print to the console.
 
-## How to use on Tago
-Do your own modifications if you want.<br>
-Upload to Tago analysis, in the admin website.<br>
-Add the environment variable `acc_token` with the account token of your choice.<br>
-Create action to run the analysis with trigger from `pdu` variable of the device. Condition should be `Any`.
+## How to use on TagoIO
+Environment Variables<br>
+In order to use this analysis, you must setup the Environment Variable table.<br>
 
-## How to run the analysis from your machine  
-Make sure you have npm and node installed in your machine.<br>
-Add the environment variable `acc_token` with the account token of your choice, to the analysis configuration, in the admin website.<br>
-Create action to run the analysis with trigger from "pdu" variable of the device. Condition should be "Any".
-Open the index.js, change `MY-ANALYSIS-TOKEN-HERE` line for your analysis token.<br>
-Opens the terminal and run:
+account_token: Your account token
 
-`npm install`<br>
-`node .`
-
+Steps to generate an account_token:<br>
+1 - Enter the following link: https://admin.tago.io/account/<br>
+2 - Select your Profile.<br>
+3 - Enter Tokens tab.<br>
+4 - Generate a new Token with Expires Never.<br>
+5 - Press the Copy Button and place at the Environment Variables tab of this analysis.<br>
