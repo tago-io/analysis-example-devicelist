@@ -50,7 +50,7 @@ async function listDevicesByTag(context) {
   });
 
   if (!devices.length) {
-    return context.log("Devices not found")
+    return context.log("Devices not found");
   }
 
   context.log(JSON.stringify(devices));
