@@ -31,11 +31,12 @@ async function listDevicesByTag(context) {
   const account = new Account({ token: envVars.account_token });
 
   // Example of filtering devices by tag.
+  // to use this filter, just remove the comment on the line 49
   const filter = {
     tags: [
       {
-        key: "key_name",
-        value: "key_value",
+        key: "key_name", // change by your key name
+        value: "key_value", // change by your key value
       },
     ],
     // You also can filter by: name, last_input, last_output, bucket, etc.
@@ -45,7 +46,7 @@ async function listDevicesByTag(context) {
   const devices = await account.devices.list({
     page: 1,
     fields: ["id", "tags"],
-    filter: filter,
+    // filter,
     amount: 100,
   });
 
