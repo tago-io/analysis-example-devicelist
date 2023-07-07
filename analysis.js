@@ -3,35 +3,21 @@
  ** Get Device List
  **
  ** This analysis retrieves the device list of your account and print to the console.
- ** There are examples on how to apply filter.
  **
- ** Environment Variables
- ** In order to use this analysis, you must setup the Environment Variable table.
- **
- ** account_token: Your account token
- **
- ** Steps to generate an account_token:
- ** 1 - Enter the following link: https://admin.tago.io/account/
- ** 2 - Select your Profile.
- ** 3 - Enter Tokens tab.
- ** 4 - Generate a new Token with Expires Never.
- ** 5 - Press the Copy Button and place at the Environment Variables tab of this analysis.
+ ** How to use:
+ ** To analysis works, you need to add a new policy in your account. Steps to add a new policy:
+ **  1 - Click in the button "Add Policy" in this url: https://admin.tago.io/am;
+ **  2 - In the Target select Analysis with the field Id and choose your analysis in the list;
+ **  3 - Click in "Click to add a new permission" and select "Device" with rules "Access" with the field "Any";
+ **  4 - To finish click on save;
  */
 
-const { Analysis, Account, Utils } = require("@tago-io/sdk");
+const { Analysis, Resources } = require("@tago-io/sdk");
 
 async function listDevicesByTag(context) {
-  // Transform all Environment Variable to JSON.
-  const envVars = Utils.envToJson(context.environment);
-
-  if (!envVars.account_token) {
-    return context.log("Missing account_token environment variable");
-  }
-
-  const account = new Account({ token: envVars.account_token });
 
   // Example of filtering devices by tag.
-  // to use this filter, just remove the comment on the line 49
+  // to use this filter, just remove the comment on the line 33
   const filter = {
     tags: [
       {
@@ -43,7 +29,7 @@ async function listDevicesByTag(context) {
   };
 
   // Searching all devices with tag we want
-  const devices = await account.devices.list({
+  const devices = await Resources.devices.list({
     page: 1,
     fields: ["id", "tags"],
     // filter,
