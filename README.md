@@ -1,5 +1,5 @@
 ## What this does
-This analysis retrieves the device list of your account and print to the console.
+This analysis retrieves the device list of your account and prints it in the console.
 
 ## How to use on TagoIO
 
@@ -7,7 +7,11 @@ In order to use this analysis, you must to add a new policy in your account.<br>
 
 
 Steps to add a new policy:
-   1 - Click in the button "Add Policy" in this url: https://admin.tago.io/am;
-   2 - In the Target select Analysis with the field Id and choose your analysis in the list;
-   3 - Click in "Click to add a new permission" and select "Device" with rules "Access" with the field "Any";
-   4 - To finish click on save;<br>
+
+   1 - Click the button "Add Policy" at this url: https://admin.tago.io/am;
+
+   2 - In the Target selector, select the Analysis with the field set as "ID" and choose your Analysis in the list;
+
+   3 - Click the "Click to add a new permission" element and select "Device" with the rule "Access" with the field as "Any";
+
+   4 - To save your new Policy, click the save button in the bottom right corner;<br>
