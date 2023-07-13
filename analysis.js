@@ -2,36 +2,22 @@
  ** Analysis Example
  ** Get Device List
  **
- ** This analysis retrieves the device list of your account and print to the console.
- ** There are examples on how to apply filter.
+ ** This analysis retrieves a list of devices from your account and prints it to the console.
  **
- ** Environment Variables
- ** In order to use this analysis, you must setup the Environment Variable table.
- **
- ** account_token: Your account token
- **
- ** Steps to generate an account_token:
- ** 1 - Enter the following link: https://admin.tago.io/account/
- ** 2 - Select your Profile.
- ** 3 - Enter Tokens tab.
- ** 4 - Generate a new Token with Expires Never.
- ** 5 - Press the Copy Button and place at the Environment Variables tab of this analysis.
+ ** How to use:
+ ** To analysis works, you need to add a new policy in your account. Steps to add a new policy:
+ **  1 - Click the button "Add Policy" at this url: https://admin.tago.io/am;
+ **  2 - In the Target selector, select the Analysis with the field set as "ID" and choose your Analysis in the list;
+ **  3 - Click the "Click to add a new permission" element and select "Device" with the rule "Access" with the field as "Any";
+ **  4 - To save your new Policy, click the save button in the bottom right corner;
  */
 
-const { Analysis, Account, Utils } = require("@tago-io/sdk");
+const { Analysis, Resources } = require("@tago-io/sdk");
 
 async function listDevicesByTag(context) {
-  // Transform all Environment Variable to JSON.
-  const envVars = Utils.envToJson(context.environment);
-
-  if (!envVars.account_token) {
-    return context.log("Missing account_token environment variable");
-  }
-
-  const account = new Account({ token: envVars.account_token });
 
   // Example of filtering devices by tag.
-  // to use this filter, just remove the comment on the line 49
+  // to use this filter, just remove the comment on the line 35
   const filter = {
     tags: [
       {
@@ -43,7 +29,7 @@ async function listDevicesByTag(context) {
   };
 
   // Searching all devices with tag we want
-  const devices = await account.devices.list({
+  const devices = await Resources.devices.list({
     page: 1,
     fields: ["id", "tags"],
     // filter,
@@ -51,10 +37,10 @@ async function listDevicesByTag(context) {
   });
 
   if (!devices.length) {
-    return context.log("Devices not found");
+    return console.debug("Devices not found");
   }
 
-  context.log(JSON.stringify(devices));
+  console.debug(JSON.stringify(devices));
 }
 
 module.exports = new Analysis(listDevicesByTag);
