@@ -14,7 +14,7 @@
 
 const { Analysis, Resources } = require("@tago-io/sdk");
 
-async function listDevicesByTag(context) {
+async function startAnalysis(context) {
 
   // Example of filtering devices by tag.
   // to use this filter, just remove the comment on the line 35
@@ -43,7 +43,7 @@ async function listDevicesByTag(context) {
   console.debug(JSON.stringify(devices));
 }
 
-module.exports = new Analysis(listDevicesByTag);
+Analysis.use(startAnalysis);
 
 // To run analysis on your machine (external)
-// module.exports = new Analysis(listDevicesByTag, { token: "YOUR-TOKEN" });
+// Analysis.use(myAnalysis, { token: "YOUR-TOKEN" });
